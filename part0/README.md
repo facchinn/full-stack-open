@@ -2,9 +2,7 @@
 
 En esta parte repasé cómo se comunican el navegador y el servidor y qué cambia cuando una aplicación trabaja como SPA.
 
-Los primeros ejercicios (`0.1`, `0.2` y `0.3`) son lecturas sobre HTML, CSS y formularios, así que no necesitan una entrega en GitHub.
-
-Para los ejercicios que sí se entregan dejé un archivo por diagrama:
+Para los ejercicios dejé un archivo por diagrama:
 
 - [0.4 — Nueva nota](./0.4-nueva-nota.md)
 - [0.5 — Aplicación SPA](./0.5-spa.md)
