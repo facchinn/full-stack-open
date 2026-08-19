@@ -1,10 +1,12 @@
-# Full Stack Open — partes 0 a 11
+# Full Stack Open
 
-Este repositorio reúne una implementación final, ejecutable y organizada de las doce partes solicitadas (numeradas del 0 al 11) del curso Full Stack Open. Los ejercicios que construyen una misma aplicación de forma incremental están representados por su versión final.
+Este repositorio es donde voy guardando mi progreso y los ejercicios que hice para **Full Stack Open**, el curso de desarrollo web de la Universidad de Helsinki.
 
-## Mapa del repositorio
+La idea es tener todo ordenado por partes y, al mismo tiempo, dejar un registro claro de lo que fui practicando: React, Node.js, APIs, testing, TypeScript, GraphQL, React Native y CI/CD.
 
-| Parte | Entregable | Temas principales |
+## Estructura
+
+| Parte | Carpeta | Temas principales |
 | --- | --- | --- |
 | 0 | `part0/` | HTTP, SPA y diagramas de secuencia |
 | 1 | `part1/` | React, componentes, props, estado y eventos |
@@ -17,24 +19,24 @@ Este repositorio reúne una implementación final, ejecutable y organizada de la
 | 8 | `part8/` | GraphQL, Apollo, caché y suscripciones |
 | 9 | `part9/` | TypeScript, validación y Patientor |
 | 10 | `part10/` | React Native, Apollo, formularios y paginación |
-| 11 | `part11/` y `.github/` | Integración y entrega continua |
+| 11 | `part11/` | CI/CD y GitHub Actions |
 
-El curso oficial ahora contiene catorce partes (0–13). Este repositorio se limita deliberadamente a 0–11 para respetar el alcance de “12 partes”.
+## Cómo ejecutar los proyectos
 
-## Uso
+La mayoría de las partes se pueden levantar desde su propia carpeta:
 
-1. Instala las dependencias web y backend desde la raíz: `npm install`.
-2. Copia los archivos `.env.example` de los backends a `.env` y completa las variables necesarias.
-3. Ejecuta una aplicación con `npm run dev -w partN` o desde el directorio de esa parte.
-4. Ejecuta la verificación global con `npm run verify`.
+```bash
+cd part1
+npm install
+npm run dev
+```
 
-React Native se mantiene separado del workspace principal para no mezclar las dependencias de Expo: entra en `part10/`, ejecuta `npm install` y luego `npm start`. El pipeline lo valida en un job independiente con ESLint y una exportación web de Metro.
+En los proyectos que necesitan variables de entorno dejé archivos `.env.example` como referencia. No subo credenciales al repositorio.
 
-## Servicios que se conectan entre sí
+Para React Native uso la configuración de `part10` por separado para no mezclar dependencias de Expo con el resto del workspace.
 
-- `part5` consume la API de blogs de `part4`.
-- `part7` consume la misma API ampliada de `part4`.
-- `part8/client` consume `part8/server`.
-- `part9/frontend` consume `part9/backend`.
+## Sobre el repositorio
 
-No se incluyen credenciales, despliegues reales ni envíos al sistema de evaluación de la Universidad de Helsinki.
+No intenté convertir los ejercicios en una sola aplicación grande. Cada parte mantiene el foco en los conceptos que se trabajan en ese punto del curso. Cuando varios ejercicios construyen la misma aplicación de forma incremental, conservo la versión final de esa etapa.
+
+Voy actualizando este repositorio a medida que avanzo y reviso las soluciones.
