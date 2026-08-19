@@ -1,30 +1,16 @@
-# Parte 1 — Introducción a React
+# Parte 1
 
-En esta parte trabajé los fundamentos de React y separé cada grupo de ejercicios en su propia aplicación, igual que los fui resolviendo en el curso.
+Acá empecé con React y fui haciendo tres aplicaciones distintas para practicar lo básico.
 
-## Ejercicios
+- `courseinfo` — ejercicios 1.1 a 1.5
+- `unicafe` — ejercicios 1.6 a 1.11
+- `anecdotes` — ejercicios 1.12 a 1.14
 
-- `courseinfo/` — ejercicios 1.1 a 1.5
-- `unicafe/` — ejercicios 1.6 a 1.11
-- `anecdotes/` — ejercicios 1.12 a 1.14
+En esta parte practiqué componentes, props, `useState`, eventos y manejo de arrays.
 
-## Qué practiqué
-
-- componentes y props
-- estado con `useState`
-- eventos
-- renderizado de listas
-- actualización de arrays sin mutarlos
-- cálculos a partir del estado
-
-## Ejecutar una aplicación
-
-Por ejemplo, para abrir `unicafe`:
+Para correr cualquiera de las apps entro a su carpeta y hago:
 
 ```bash
-cd part1/unicafe
 npm install
 npm run dev
 ```
-
-Cada carpeta se puede ejecutar de la misma manera.
