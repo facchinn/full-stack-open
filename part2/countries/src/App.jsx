@@ -60,7 +60,7 @@ const Country = ({ country }) => {
 
 const App = () => {
   const [countries, setCountries] = useState([])
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('argentina')
   const [selectedCountry, setSelectedCountry] = useState(null)
 
   useEffect(() => {
