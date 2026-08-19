@@ -1,32 +1,31 @@
 # Full Stack Open
 
-Estoy usando este repositorio para ir subiendo los ejercicios de **Full Stack Open**, de la Universidad de Helsinki.
+Repo donde voy subiendo los ejercicios de **Full Stack Open** de la Universidad de Helsinki.
 
-La idea es ir completando y enviando una parte a la vez.
+Voy haciendo una parte por vez y dejando cada ejercicio separado para que sea fácil de encontrar.
 
-## Parte 0
+## Partes que tengo hasta ahora
 
-Esta parte sirve para entender qué pasa entre el navegador y el servidor antes de empezar con React: peticiones HTTP, respuestas del servidor, JavaScript en el navegador y la diferencia entre una aplicación tradicional y una SPA.
+### Parte 0
+Fundamentos de aplicaciones web, HTTP y SPA.
 
-Los ejercicios `0.1`, `0.2` y `0.3` son de lectura y no requieren archivos para entregar en GitHub. Los diagramas de `0.4`, `0.5` y `0.6` están dentro de `part0/`.
+Los diagramas de los ejercicios 0.4, 0.5 y 0.6 están en `part0/`.
 
-## Parte 1
+### Parte 1
+Primeros ejercicios con React.
 
-En esta parte empecé con React, componentes, props, estado y eventos.
+- `courseinfo` — 1.1 a 1.5
+- `unicafe` — 1.6 a 1.11
+- `anecdotes` — 1.12 a 1.14
 
-- `courseinfo`: ejercicios 1.1–1.5
-- `unicafe`: ejercicios 1.6–1.11
-- `anecdotes`: ejercicios 1.12–1.14
+### Parte 2
+React con formularios, listas, servidor y APIs.
 
-## Parte 2
+- `courseinfo` — 2.1 a 2.5
+- `phonebook` — 2.6 a 2.17
+- `countries` — 2.18 a 2.20
 
-En esta parte sigo con React trabajando listas, formularios, comunicación con un servidor y estilos.
-
-- `courseinfo`: ejercicios 2.1–2.5
-- `phonebook`: ejercicios 2.6–2.17
-- `countries`: ejercicios 2.18–2.20
-
-En `countries` dejé Argentina como búsqueda inicial para ver directamente sus datos, la bandera y el clima de Buenos Aires.
+En `countries` dejé Argentina cargada de entrada para probar la bandera, los datos del país y el clima de Buenos Aires.
 
 ```text
 full-stack-open/
