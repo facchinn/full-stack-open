@@ -52,24 +52,31 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
+    outputs:
+      deployed: ${{ steps.trigger.outputs.deployed }}
     steps:
+      - uses: actions/checkout@v4
       - name: Trigger production deployment
+        id: trigger
         env:
           DEPLOY_HOOK_URL: ${{ secrets.DEPLOY_HOOK_URL }}
         run: |
           if [ -n "$DEPLOY_HOOK_URL" ]; then
             curl --fail --retry 3 --request POST "$DEPLOY_HOOK_URL"
+            echo "deployed=true" >> "$GITHUB_OUTPUT"
           else
             echo "DEPLOY_HOOK_URL is not configured; verification succeeded and deployment was skipped."
+            echo "deployed=false" >> "$GITHUB_OUTPUT"
           fi
       - name: Verify production health
+        if: steps.trigger.outputs.deployed == 'true'
         env:
           HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
         run: node part11/scripts/healthcheck.mjs
 
   tag-release:
     needs: deploy
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.deploy.outputs.deployed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
