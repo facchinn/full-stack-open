@@ -1,0 +1,99 @@
+name: Full Stack Open pipeline
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pipeline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint, test and build
+        run: npm run verify
+
+  mobile:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: part10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: part10/package-lock.json
+      - name: Install Expo dependencies
+        run: npm ci
+      - name: Lint React Native application
+        run: npm run lint
+      - name: Export web bundle smoke test
+        env:
+          EXPO_NO_TELEMETRY: 1
+        run: npx expo export --platform web
+
+  deploy:
+    needs: [verify, mobile]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Trigger production deployment
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.DEPLOY_HOOK_URL }}
+        run: |
+          if [ -n "$DEPLOY_HOOK_URL" ]; then
+            curl --fail --retry 3 --request POST "$DEPLOY_HOOK_URL"
+          else
+            echo "DEPLOY_HOOK_URL is not configured; verification succeeded and deployment was skipped."
+          fi
+      - name: Verify production health
+        env:
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
+        run: node part11/scripts/healthcheck.mjs
+
+  tag-release:
+    needs: deploy
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Tag successful deployment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          TAG="release-$(date -u +%Y%m%d-%H%M%S)"
+          git tag "$TAG"
+          git push origin "$TAG"
+
+  notify-failure:
+    needs: [verify, mobile, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Discord when configured
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -n "$DISCORD_WEBHOOK" ]; then
+            curl --fail -H "Content-Type: application/json" -d "{\"content\":\"Pipeline failed for $GITHUB_REPOSITORY at $GITHUB_SHA\"}" "$DISCORD_WEBHOOK"
+          else
+            echo "Pipeline failed; configure DISCORD_WEBHOOK to send external notifications."
+          fi

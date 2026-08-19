@@ -1,0 +1,30 @@
+{
+  "name": "full-stack-open-parts-0-11",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Soluciones finales y proyectos integradores para las partes 0 a 11 de Full Stack Open",
+  "workspaces": [
+    "part1",
+    "part2",
+    "part3",
+    "part4",
+    "part5",
+    "part6",
+    "part7",
+    "part8/server",
+    "part8/client",
+    "part9/backend",
+    "part9/frontend",
+    "part9/courseinfo",
+    "part9/flight-diary"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "verify": "npm run lint && npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

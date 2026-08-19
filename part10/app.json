@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Rate Repository",
+    "slug": "rate-repository-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": { "backgroundColor": "#111827" },
+    "ios": { "supportsTablet": true },
+    "android": { "adaptiveIcon": { "backgroundColor": "#111827" } },
+    "web": { "bundler": "metro" }
+  }
+}

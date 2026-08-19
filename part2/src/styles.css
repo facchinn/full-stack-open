@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+:root { font-family: Inter, sans-serif; color: #14201b; background: #edf2ee; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.topbar { height: 76px; background: #10241b; color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 max(24px, calc((100vw - 1180px) / 2)); }
+.wordmark { color: white; background: none; border: 0; font-weight: 700; font-size: 17px; display: flex; align-items: center; gap: 12px; }
+.wordmark span { background: #ff6b3d; border-radius: 4px; padding: 7px; font: 500 12px 'IBM Plex Mono'; }
+.topbar nav { display: flex; gap: 6px; }
+.topbar nav button { border: 0; background: transparent; color: #b9c5bf; border-radius: 6px; padding: 9px 13px; }
+.topbar nav button.current { background: #294137; color: white; }
+main { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 70px 0 100px; }
+.page-title { margin-bottom: 36px; }
+.page-title p, .eyebrow { color: #df542d; font: 500 12px 'IBM Plex Mono'; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 10px; }
+h1 { margin: 0; font-size: clamp(42px, 7vw, 76px); line-height: 1; letter-spacing: -.06em; }
+h2 { letter-spacing: -.035em; }
+.panel { background: #f9fbf8; border: 1px solid #cad4ce; border-radius: 12px; box-shadow: 0 15px 45px rgba(16,36,27,.06); }
+.course-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.course-panel { padding: 28px; }
+.course-panel h2 { font-size: 27px; min-height: 68px; }
+.course-panel ul, .directory ul { list-style: none; padding: 0; margin: 24px 0; }
+.course-panel li { display: flex; justify-content: space-between; border-top: 1px solid #dfe5e1; padding: 12px 0; }
+.course-panel footer { background: #e3ebe5; border-radius: 8px; display: flex; justify-content: space-between; padding: 15px; }
+.two-columns { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
+.form-panel { padding: 28px; }
+label { display: grid; gap: 8px; font-weight: 600; font-size: 13px; margin: 18px 0; }
+input { border: 1px solid #b8c5be; border-radius: 7px; background: white; padding: 12px 13px; outline: none; }
+input:focus { border-color: #176c48; box-shadow: 0 0 0 3px rgba(23,108,72,.12); }
+.primary { width: 100%; border: 0; border-radius: 7px; background: #176c48; color: white; padding: 13px; font-weight: 700; }
+.directory { padding: 28px; }
+.directory-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.directory-heading h2 span { background: #dfe8e2; border-radius: 999px; font: 12px 'IBM Plex Mono'; padding: 5px 8px; }
+.directory li { border-top: 1px solid #dfe5e1; padding: 13px 0; display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 12px; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: #d6e4db; display: grid; place-items: center; font-weight: 700; }
+.directory li strong, .directory li small { display: block; }
+.directory li small { color: #607068; margin-top: 3px; }
+.danger { border: 0; background: #ffebe5; color: #9c3214; border-radius: 5px; padding: 7px 9px; }
+.notification { border-radius: 8px; padding: 13px 16px; margin: -18px 0 24px; border: 1px solid #68a584; background: #e3f4e9; }
+.notification.error { border-color: #d78168; background: #ffebe5; }
+.search-box { max-width: 520px; margin-bottom: 32px; }
+.search-box input { font-size: 18px; padding: 15px; }
+.country-list { max-width: 680px; display: grid; gap: 8px; }
+.country-list button { display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; align-items: center; text-align: left; border: 1px solid #cad4ce; background: #f9fbf8; border-radius: 8px; padding: 11px; }
+.country-list img { width: 40px; height: 27px; object-fit: cover; }
+.country-list small { color: #176c48; }
+.country-card { max-width: 760px; padding: 32px; }
+.country-card header { display: flex; align-items: center; gap: 24px; }
+.country-card header img { width: 180px; max-height: 120px; object-fit: contain; border: 1px solid #d5ddd8; }
+.country-card h2 { font-size: 38px; margin: 0; }
+.country-card header p:last-child { color: #66756d; }
+dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 30px 0; }
+dl div { background: #e9efeb; border-radius: 7px; padding: 13px; }
+dt { color: #6c7771; font-size: 12px; }
+dd { margin: 5px 0 0; font-weight: 700; }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chips span { border: 1px solid #bdc9c2; border-radius: 999px; padding: 7px 11px; font-size: 13px; }
+.weather { margin-top: 28px; border-left: 4px solid #ff6b3d; padding: 10px 16px; display: flex; flex-direction: column; }
+.weather strong { font-size: 28px; }
+.hint { color: #65716b; }
+@media (max-width: 760px) { .topbar { height: auto; padding: 14px; align-items: flex-start; gap: 12px; } .wordmark { padding-top: 5px; } .topbar nav { overflow-x: auto; } main { padding-top: 42px; } .course-grid, .two-columns { grid-template-columns: 1fr; } .directory-heading { align-items: stretch; flex-direction: column; } .country-card header { align-items: flex-start; flex-direction: column; } dl { grid-template-columns: 1fr; } }
