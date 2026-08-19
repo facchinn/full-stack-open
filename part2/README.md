@@ -1,42 +1,13 @@
-# Parte 2 — Comunicando con el servidor
+# Parte 2
 
-En esta parte separé los tres grupos de ejercicios para que cada aplicación quede independiente y sea fácil de revisar.
+En esta parte seguí con React pero ya usando formularios, datos de un servidor y APIs.
 
-## Ejercicios
+- `courseinfo` — ejercicios 2.1 a 2.5
+- `phonebook` — ejercicios 2.6 a 2.17
+- `countries` — ejercicios 2.18 a 2.20
 
-- `courseinfo/` — ejercicios 2.1 a 2.5
-- `phonebook/` — ejercicios 2.6 a 2.17
-- `countries/` — ejercicios 2.18 a 2.20
+En `phonebook` trabajé con JSON Server, Axios, agregar, editar y borrar personas, además de mostrar mensajes cuando algo sale bien o mal.
 
-## Qué practiqué
+En `countries` hice el buscador de países con sus datos, bandera e información del clima. Dejé Argentina como búsqueda inicial para probarlo más rápido.
 
-- renderizado de colecciones y módulos
-- formularios controlados
-- filtros
-- `useEffect`
-- comunicación HTTP con Axios
-- JSON Server
-- creación, actualización y eliminación de datos
-- manejo de errores y notificaciones
-- consumo de APIs externas
-
-## Phonebook
-
-Para levantar la agenda uso dos terminales:
-
-```bash
-cd part2/phonebook
-npm install
-npm run server
-```
-
-Y en otra terminal:
-
-```bash
-cd part2/phonebook
-npm run dev
-```
-
-## Countries
-
-La aplicación consulta la API de países usada por el curso y agrega información meteorológica de la capital con Open-Meteo.
+Para levantar `phonebook` uso dos terminales: una con `npm run server` y otra con `npm run dev`.
