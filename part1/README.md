@@ -27,4 +27,4 @@ npm install
 npm run dev
 ```
 
-Cada carpeta se puede ejecutar de la misma manera.
+
