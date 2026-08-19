@@ -1,8 +1,0 @@
-{
-  "anecdotes": [
-    { "id": "1", "content": "If it hurts, do it more often", "votes": 0 },
-    { "id": "2", "content": "Premature optimization is the root of all evil", "votes": 0 },
-    { "id": "3", "content": "Debugging is twice as hard as writing the code in the first place", "votes": 0 },
-    { "id": "4", "content": "Simplicity is prerequisite for reliability", "votes": 0 }
-  ]
-}
