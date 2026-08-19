@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Header = ({ name }) => <h2>{name}</h2>
 
 const Part = ({ part }) => (
