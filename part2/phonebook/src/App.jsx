@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import personService from './services/persons.js'
 import './styles.css'
 
@@ -85,8 +85,11 @@ const App = () => {
       setNewName('')
       setNewNumber('')
     } catch (error) {
+      if (existingPerson) {
+        setPersons(persons.filter((person) => person.id !== existingPerson.id))
+      }
       showNotification(
-        error.response?.data?.error || 'The phonebook could not be updated',
+        error.response?.data?.error || `${name} was already removed from server`,
         'error',
       )
     }
