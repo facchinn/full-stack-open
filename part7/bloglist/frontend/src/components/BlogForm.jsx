@@ -36,7 +36,7 @@ const BlogForm = ({ createBlog }) => {
   const { reset: resetAuthor, ...authorInput } = author
   const { reset: resetUrl, ...urlInput } = url
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const created = await createBlog({
       title: title.value,

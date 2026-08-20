@@ -27,7 +27,10 @@ class ErrorBoundary extends Component {
       return (
         <ErrorBox>
           <h2>Something went wrong</h2>
-          <p>The page could not be rendered. You can still use the navigation above.</p>
+          <p>
+            The page could not be rendered. You can still use the navigation
+            above.
+          </p>
         </ErrorBox>
       )
     }

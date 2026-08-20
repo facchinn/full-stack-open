@@ -107,7 +107,7 @@ const LoginForm = ({ handleLogin }) => {
   const { reset: resetUsername, ...usernameInput } = username
   const { reset: resetPassword, ...passwordInput } = password
 
-  const submit = async event => {
+  const submit = async (event) => {
     event.preventDefault()
     const loggedIn = await handleLogin(username.value, password.value)
 
@@ -138,7 +138,7 @@ const LoginForm = ({ handleLogin }) => {
 const BlogList = ({ blogs }) => (
   <div>
     <h2>blogs</h2>
-    {blogs.map(blog => (
+    {blogs.map((blog) => (
       <BlogRow className="blog" key={blog.id}>
         <NavLink to={`/blogs/${blog.id}`}>
           {blog.title} {blog.author}
@@ -159,10 +159,12 @@ const UsersView = ({ users }) => (
         </tr>
       </thead>
       <tbody>
-        {users.map(user => (
+        {users.map((user) => (
           <tr key={user.id}>
             <td>
-              <NavLink to={`/users/${user.id}`}>{user.name || user.username}</NavLink>
+              <NavLink to={`/users/${user.id}`}>
+                {user.name || user.username}
+              </NavLink>
             </td>
             <td>{user.blogs.length}</td>
           </tr>
@@ -174,7 +176,7 @@ const UsersView = ({ users }) => (
 
 const UserView = ({ users }) => {
   const { id } = useParams()
-  const user = users.find(item => item.id === id)
+  const user = users.find((item) => item.id === id)
 
   if (!user) return <div>user not found</div>
 
@@ -186,7 +188,7 @@ const UserView = ({ users }) => {
         <p>No blogs added.</p>
       ) : (
         <ul>
-          {user.blogs.map(blog => (
+          {user.blogs.map((blog) => (
             <li key={blog.id}>
               <NavLink to={`/blogs/${blog.id}`}>{blog.title}</NavLink>
             </li>
@@ -197,9 +199,15 @@ const UserView = ({ users }) => {
   )
 }
 
-const BlogRoute = ({ blogs, user, handleLike, handleRemove, handleComment }) => {
+const BlogRoute = ({
+  blogs,
+  user,
+  handleLike,
+  handleRemove,
+  handleComment,
+}) => {
   const { id } = useParams()
-  const blog = blogs.find(item => item.id === id)
+  const blog = blogs.find((item) => item.id === id)
 
   if (!blog) return <div>blog not found</div>
 
@@ -269,7 +277,7 @@ const App = () => {
     navigate('/')
   }
 
-  const handleCreate = async blog => {
+  const handleCreate = async (blog) => {
     try {
       const createdBlog = await createBlog(blog)
       notify(`a new blog ${createdBlog.title} by ${createdBlog.author} added`)
@@ -282,7 +290,7 @@ const App = () => {
     }
   }
 
-  const handleLike = async blog => {
+  const handleLike = async (blog) => {
     try {
       await likeBlog(blog)
     } catch {
@@ -290,8 +298,10 @@ const App = () => {
     }
   }
 
-  const handleRemove = async blog => {
-    const confirmed = window.confirm(`Remove blog ${blog.title} by ${blog.author}?`)
+  const handleRemove = async (blog) => {
+    const confirmed = window.confirm(
+      `Remove blog ${blog.title} by ${blog.author}?`
+    )
     if (!confirmed) return
 
     try {
@@ -343,13 +353,21 @@ const App = () => {
           <Route
             path="/login"
             element={
-              user ? <Navigate to="/" replace /> : <LoginForm handleLogin={handleLogin} />
+              user ? (
+                <Navigate to="/" replace />
+              ) : (
+                <LoginForm handleLogin={handleLogin} />
+              )
             }
           />
           <Route
             path="/create"
             element={
-              user ? <BlogForm createBlog={handleCreate} /> : <Navigate to="/login" replace />
+              user ? (
+                <BlogForm createBlog={handleCreate} />
+              ) : (
+                <Navigate to="/login" replace />
+              )
             }
           />
           <Route

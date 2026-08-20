@@ -4,7 +4,7 @@ import persistentUser from './services/persistentUser'
 
 let notificationTimer
 
-const useAppStore = create(set => ({
+const useAppStore = create((set) => ({
   blogs: [],
   user: null,
   notification: null,
@@ -30,7 +30,7 @@ const useAppStore = create(set => ({
       }, seconds * 1000)
     },
 
-    loginUser: user => {
+    loginUser: (user) => {
       persistentUser.saveUser(user)
       blogService.setToken(user.token)
       set({ user })
@@ -42,13 +42,13 @@ const useAppStore = create(set => ({
       set({ user: null })
     },
 
-    createBlog: async blog => {
+    createBlog: async (blog) => {
       const createdBlog = await blogService.create(blog)
-      set(state => ({ blogs: state.blogs.concat(createdBlog) }))
+      set((state) => ({ blogs: state.blogs.concat(createdBlog) }))
       return createdBlog
     },
 
-    likeBlog: async blog => {
+    likeBlog: async (blog) => {
       const updatedBlog = await blogService.update(blog.id, {
         title: blog.title,
         author: blog.author,
@@ -56,8 +56,8 @@ const useAppStore = create(set => ({
         likes: blog.likes + 1,
       })
 
-      set(state => ({
-        blogs: state.blogs.map(item =>
+      set((state) => ({
+        blogs: state.blogs.map((item) =>
           item.id === updatedBlog.id ? updatedBlog : item
         ),
       }))
@@ -65,17 +65,17 @@ const useAppStore = create(set => ({
       return updatedBlog
     },
 
-    removeBlog: async blog => {
+    removeBlog: async (blog) => {
       await blogService.remove(blog.id)
-      set(state => ({
-        blogs: state.blogs.filter(item => item.id !== blog.id),
+      set((state) => ({
+        blogs: state.blogs.filter((item) => item.id !== blog.id),
       }))
     },
 
     commentBlog: async (blog, comment) => {
       const updatedBlog = await blogService.addComment(blog.id, comment)
-      set(state => ({
-        blogs: state.blogs.map(item =>
+      set((state) => ({
+        blogs: state.blogs.map((item) =>
           item.id === updatedBlog.id ? updatedBlog : item
         ),
       }))
@@ -84,9 +84,9 @@ const useAppStore = create(set => ({
   },
 }))
 
-export const useBlogs = () => useAppStore(state => state.blogs)
-export const useLoggedUser = () => useAppStore(state => state.user)
-export const useNotification = () => useAppStore(state => state.notification)
-export const useAppActions = () => useAppStore(state => state.actions)
+export const useBlogs = () => useAppStore((state) => state.blogs)
+export const useLoggedUser = () => useAppStore((state) => state.user)
+export const useNotification = () => useAppStore((state) => state.notification)
+export const useAppActions = () => useAppStore((state) => state.actions)
 
 export default useAppStore

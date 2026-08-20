@@ -17,7 +17,7 @@ logger.info('connecting to MongoDB')
 mongoose
   .connect(config.MONGODB_URI)
   .then(() => logger.info('connected to MongoDB'))
-  .catch(error => logger.error('error connecting to MongoDB:', error.message))
+  .catch((error) => logger.error('error connecting to MongoDB:', error.message))
 
 app.use(cors())
 app.use(express.json())
@@ -37,7 +37,7 @@ app.use(express.static(frontendDist))
 app.use((request, response, next) => {
   if (request.method !== 'GET') return next()
 
-  response.sendFile(path.join(frontendDist, 'index.html'), error => {
+  response.sendFile(path.join(frontendDist, 'index.html'), (error) => {
     if (error) next()
   })
 })

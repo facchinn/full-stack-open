@@ -12,7 +12,7 @@ const getUser = () => {
   }
 }
 
-const saveUser = user => {
+const saveUser = (user) => {
   window.localStorage.setItem(storageKey, JSON.stringify(user))
 }
 

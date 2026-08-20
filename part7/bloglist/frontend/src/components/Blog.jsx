@@ -52,7 +52,13 @@ const CommentList = styled.ul`
   padding-left: 22px;
 `
 
-const Blog = ({ blog, currentUser, handleLike, handleRemove, handleComment }) => {
+const Blog = ({
+  blog,
+  currentUser,
+  handleLike,
+  handleRemove,
+  handleComment,
+}) => {
   const comment = useField('text')
   const { reset: resetComment, ...commentInput } = comment
 
@@ -60,7 +66,7 @@ const Blog = ({ blog, currentUser, handleLike, handleRemove, handleComment }) =>
     currentUser && blog.user && blog.user.username === currentUser.username
   )
 
-  const submitComment = async event => {
+  const submitComment = async (event) => {
     event.preventDefault()
     if (!comment.value.trim()) return
 
