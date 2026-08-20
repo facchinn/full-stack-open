@@ -1,0 +1,22 @@
+{
+  "name": "zustand-anecdotes",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "server": "json-server -p 3001 db.json",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "json-server": "^1.0.0-beta.3",
+    "vite": "^8.0.1"
+  }
+}
