@@ -1,41 +1,49 @@
-# Full Stack Open
+# Full Stack Open — University of Helsinki
 
-Repo donde voy subiendo los ejercicios de **Full Stack Open** de la Universidad de Helsinki.
+Repositorio con mis ejercicios y proyectos del curso **Full Stack Open** de la University of Helsinki.
 
-Voy haciendo una parte por vez y dejando cada ejercicio separado para que sea fácil de encontrar.
+Completé las **Partes 0 a 7**, trabajando con React, Node.js, Express, MongoDB, testing, gestión de estado, React Query, Zustand y aplicaciones full stack.
 
-## Partes que tengo hasta ahora
+## Progreso
 
-### Parte 0
-Fundamentos de aplicaciones web, HTTP y SPA.
+| Parte | Contenido | Estado |
+| --- | --- | --- |
+| 0 | Fundamentos de aplicaciones web, HTTP y SPA | ✅ Completa |
+| 1 | Introducción a React | ✅ Completa |
+| 2 | Comunicación con servidor, formularios y APIs | ✅ Completa |
+| 3 | Backend con Node.js, Express y MongoDB | ✅ Completa |
+| 4 | Testing de backend, usuarios y autenticación | ✅ Completa |
+| 5 | Testing de aplicaciones React y E2E | ✅ Completa |
+| 6 | Gestión avanzada de estado, React Query y Zustand | ✅ Completa |
+| 7 | React Router, custom hooks y aplicación BlogList extendida | ✅ Completa |
 
-Los diagramas de los ejercicios 0.4, 0.5 y 0.6 están en `part0/`.
+## Estructura
 
-### Parte 1
-Primeros ejercicios con React.
+Este repositorio contiene directamente las Partes **0, 1, 2, 6 y 7**.
 
-- `courseinfo` — 1.1 a 1.5
-- `unicafe` — 1.6 a 1.11
-- `anecdotes` — 1.12 a 1.14
+Las Partes 3, 4 y 5 fueron desarrolladas en repositorios separados durante el curso:
 
-### Parte 2
-React con formularios, listas, servidor y APIs.
-
-- `courseinfo` — 2.1 a 2.5
-- `phonebook` — 2.6 a 2.17
-- `countries` — 2.18 a 2.20
-
-En `countries` dejé Argentina cargada de entrada para probar la bandera, los datos del país y el clima de Buenos Aires.
+- [phonebook-backend](https://github.com/facchinn/phonebook-backend) — Parte 3
+- [bloglist-backend](https://github.com/facchinn/bloglist-backend) — Parte 4
+- [bloglist-frontend](https://github.com/facchinn/bloglist-frontend) — Parte 5
 
 ```text
 full-stack-open/
 ├── part0/
 ├── part1/
-│   ├── courseinfo/
-│   ├── unicafe/
-│   └── anecdotes/
-└── part2/
-    ├── courseinfo/
-    ├── phonebook/
-    └── countries/
+├── part2/
+├── part6/
+└── part7/
 ```
+
+## Tecnologías trabajadas
+
+`JavaScript` · `React` · `Node.js` · `Express` · `MongoDB` · `REST APIs` · `Vitest` · `Playwright` · `React Router` · `React Query` · `Zustand`
+
+## Certificación
+
+Curso completado con certificado de **Full Stack Open — University of Helsinki**, equivalente a **7 ECTS**, con calificación **5/5**.
+
+---
+
+Este repositorio refleja mi progreso práctico durante el curso: desde los fundamentos de React hasta aplicaciones full stack con autenticación, testing, gestión de estado y arquitectura frontend/backend.
